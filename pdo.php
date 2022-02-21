@@ -125,3 +125,23 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute(['title'=>$title,'body'=>$body, 'id'=>$id]);
 
 echo 'Updated';
+
+//Performing a PDP delete using named parameters
+
+//initializing the primary key of the row to be deleted.
+
+$id=1
+	
+//Delete SQL	
+$sqldelete = 'DELETE FROM pdotable WHERE id=:id';
+
+//Prepare the PDO statement
+$stmt = $pdo->prepare($sqldelete);
+
+//Execute the prepared statement
+$stmt->execute(['id'=>$id]);
+
+// Echo that the delete is successful
+echo 'Delete successful';
+
+	
